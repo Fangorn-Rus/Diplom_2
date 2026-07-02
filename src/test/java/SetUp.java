@@ -9,6 +9,8 @@ public class SetUp {
 
     @BeforeClass
     public static void setUp() {
+
+
         RestAssured.baseURI = "https://stellarburgers.education-services.ru";
 
         requestSpec = new RequestSpecBuilder()

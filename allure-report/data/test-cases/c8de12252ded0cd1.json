@@ -1,0 +1,52 @@
+{
+  "uid" : "c8de12252ded0cd1",
+  "name" : "testCreateUserWithoutField",
+  "historyId" : "TestCreateUser:TestCreateUser#testCreateUserWithoutField",
+  "time" : {
+    "duration" : 49
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "e56204bc9aa4f427",
+      "name" : "System out",
+      "source" : "e56204bc9aa4f427.txt",
+      "type" : "text/plain",
+      "size" : 282
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "resultFormat",
+    "value" : "junit"
+  }, {
+    "name" : "suite",
+    "value" : "TestCreateUser"
+  }, {
+    "name" : "testClass",
+    "value" : "TestCreateUser"
+  }, {
+    "name" : "package",
+    "value" : "TestCreateUser"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c8de12252ded0cd1.json",
+  "parameterValues" : [ ]
+}

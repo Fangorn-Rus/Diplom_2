@@ -1,0 +1,52 @@
+{
+  "uid" : "31e49b04d8de0cb5",
+  "name" : "testLoginExistingUser",
+  "historyId" : "TestLoginUser:TestLoginUser#testLoginExistingUser",
+  "time" : {
+    "duration" : 959
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "10f8453737683e89",
+      "name" : "System out",
+      "source" : "10f8453737683e89.txt",
+      "type" : "text/plain",
+      "size" : 280
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "resultFormat",
+    "value" : "junit"
+  }, {
+    "name" : "suite",
+    "value" : "TestLoginUser"
+  }, {
+    "name" : "testClass",
+    "value" : "TestLoginUser"
+  }, {
+    "name" : "package",
+    "value" : "TestLoginUser"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "31e49b04d8de0cb5.json",
+  "parameterValues" : [ ]
+}

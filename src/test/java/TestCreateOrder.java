@@ -57,9 +57,8 @@ public class TestCreateOrder {
 
     @Test
     public void testCreateOrderWithAuthAndWrongIngredients(){
-        String testEmail = "test_wrong_ingredients_" + System.currentTimeMillis() + "@mail.ru";
-        createAndLoginUser = new TestPOMLoginUser(testEmail, "12345", "Vladimir");
-        createAndLoginUser.createUser();
+        createAndLoginUser = new TestPOMLoginUser("test_testCreateOrderWithAuthAndWrongIngredients@mail.ru", "12345", "Vladimir");
+        Response response = createAndLoginUser.createUser();
         createAndLoginUser.loginUser();
 
         obj = new TestPOMCreateOrder(new String[]{"61coc5a71d1f82001bdaaa74"}, createAndLoginUser);
@@ -68,6 +67,11 @@ public class TestCreateOrder {
                 .statusCode(SC_INTERNAL_SERVER_ERROR)
                 .and()
                 ;
+
+        accessToken = response.path("accessToken");
+        if(accessToken != null){
+            TestPOMLoginUser.deleteUser(accessToken);
+        }
 
     }
 
