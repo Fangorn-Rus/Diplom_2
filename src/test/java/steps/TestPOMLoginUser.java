@@ -1,4 +1,11 @@
+package steps;
+
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import models.LoginUserDTO;
+import tests.CreateAndLoginUser;
+import tests.Endpoints;
+import tests.SetUp;
 
 import static io.restassured.RestAssured.given;
 
@@ -13,7 +20,7 @@ public class TestPOMLoginUser implements CreateAndLoginUser {
         this.password = password;
         this.userName = userName;
     }
-
+    @Step
     public static void deleteUser(String accessToken) {
         given()
                 .header("Authorization", accessToken)
@@ -22,7 +29,7 @@ public class TestPOMLoginUser implements CreateAndLoginUser {
                 .delete(Endpoints.DELETE_USER)
                 ;
     }
-
+    @Step
     public Response createUser(){
         obj = new LoginUserDTO(email, password, userName);
 
@@ -33,7 +40,7 @@ public class TestPOMLoginUser implements CreateAndLoginUser {
                 .when()
                 .post(Endpoints.CREATE_USER);
     }
-
+    @Step
     public Response loginUser() {
         obj = new LoginUserDTO(email, password, userName);
 

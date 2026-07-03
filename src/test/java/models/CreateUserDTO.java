@@ -1,6 +1,8 @@
+package models;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class LoginUserDTO {
+public class CreateUserDTO {
     @JsonProperty("email")
     private String email;
     @JsonProperty("password")
@@ -8,13 +10,13 @@ public class LoginUserDTO {
     @JsonProperty("name")
     private String name;
 
-    public LoginUserDTO(String email, String password, String name) {
+    public CreateUserDTO(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
     }
 
-    public LoginUserDTO() {
+    public CreateUserDTO() {
     }
 
     public String getEmail() {

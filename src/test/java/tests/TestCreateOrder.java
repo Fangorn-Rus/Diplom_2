@@ -1,6 +1,12 @@
+package tests;
+
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import steps.TestPOMCreateOrder;
+import steps.TestPOMLoginUser;
 
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -13,69 +19,52 @@ public class TestCreateOrder {
     @Before
     public void init() {
         SetUp.setUp();
+        String email = "test_" + System.currentTimeMillis() + "@mail.ru";
+        String password = System.currentTimeMillis() + "pass";
+        String name = "Vladimir";
+
+        createAndLoginUser = new TestPOMLoginUser(email, password, name);
+        Response response = createAndLoginUser.createUser();
+        accessToken = response.path("accessToken");
+
     }
 
     @Test
+    @DisplayName("Создание заказа с авторизацией; с ингредиентами;")
     public void testCreateOrderWithAuthAndIngredients(){
-        createAndLoginUser = new TestPOMLoginUser("test_testCreateOrderWithAuth@mail.ru", "12345", "Vladimir");
-        Response response = createAndLoginUser.createUser();
         createAndLoginUser.loginUser();
-
         obj = new TestPOMCreateOrder(new String[]{"61c0c5a71d1f82001bdaaa6d", "61c0c5a71d1f82001bdaaa70"}, createAndLoginUser);
         obj.createOrder()
                 .then().assertThat()
                 .statusCode(SC_OK)
                 .and()
                 .body("success", equalTo(true));
-
-        accessToken = response.path("accessToken");
-        if(accessToken != null){
-            TestPOMLoginUser.deleteUser(accessToken);
-        }
-
     }
 
     @Test
+    @DisplayName("Создание заказа без авторизации; без ингредиентов;")
     public void testCreateOrderWithoutAuthAndIngredients(){
-        createAndLoginUser = new TestPOMLoginUser("test_testCreateOrderWithoutAuthAndIngredients@mail.ru", "12345", "Vladimir");
-        Response response = createAndLoginUser.createUser();
-        createAndLoginUser.loginUser();
-
         obj = new TestPOMCreateOrder(new String[]{}, createAndLoginUser);
         obj.createOrder()
                 .then().assertThat()
                 .statusCode(SC_BAD_REQUEST)
                 .and()
                 .body("success", equalTo(false));
-
-        accessToken = response.path("accessToken");
-        if(accessToken != null){
-            TestPOMLoginUser.deleteUser(accessToken);
-        }
-
     }
 
     @Test
+    @DisplayName("Создание заказа с авторизацией; с неверным хешем ингредиентов;")
     public void testCreateOrderWithAuthAndWrongIngredients(){
-        createAndLoginUser = new TestPOMLoginUser("test_testCreateOrderWithAuthAndWrongIngredients@mail.ru", "12345", "Vladimir");
-        Response response = createAndLoginUser.createUser();
         createAndLoginUser.loginUser();
-
         obj = new TestPOMCreateOrder(new String[]{"61coc5a71d1f82001bdaaa74"}, createAndLoginUser);
         obj.createOrder()
                 .then().assertThat()
                 .statusCode(SC_INTERNAL_SERVER_ERROR)
-                .and()
                 ;
-
-        accessToken = response.path("accessToken");
-        if(accessToken != null){
-            TestPOMLoginUser.deleteUser(accessToken);
-        }
-
     }
 
     @Test
+    @DisplayName("Создание заказа без авторизации;")
     public void testCreateOrderWithoutAuth(){
         obj = new TestPOMCreateOrder(new String[]{"61c0c5a71d1f82001bdaaa6d", "61c0c5a71d1f82001bdaaa70"}, createAndLoginUser);
         obj.createOrder()
@@ -83,6 +72,13 @@ public class TestCreateOrder {
                 .statusCode(SC_OK)
                 .and()
                 .body("success", equalTo(true));
+    }
+
+    @After
+    public void endTest(){
+        if(accessToken != null){
+            TestPOMLoginUser.deleteUser(accessToken);
+        }
     }
 
 

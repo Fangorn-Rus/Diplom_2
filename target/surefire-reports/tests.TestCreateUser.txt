@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: TestCreateOrder
+Test set: tests.TestCreateUser
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.181 s -- in TestCreateOrder
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.923 s - in tests.TestCreateUser

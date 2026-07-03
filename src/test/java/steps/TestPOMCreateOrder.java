@@ -1,4 +1,11 @@
+package steps;
+
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
+import models.CreateOrderDTO;
+import tests.CreateAndLoginUser;
+import tests.Endpoints;
+import tests.SetUp;
 
 import static io.restassured.RestAssured.given;
 
@@ -10,7 +17,7 @@ public class TestPOMCreateOrder implements CreateAndLoginUser {
         this.ingredients = ingredients;
         this.createAndLoginUser = createAndLoginUser;
     }
-
+    @Step
     public Response createOrder() {
         CreateOrderDTO obj = new CreateOrderDTO(ingredients);
 
@@ -24,11 +31,13 @@ public class TestPOMCreateOrder implements CreateAndLoginUser {
 
 
     @Override
+    @Step
     public Response createUser() {
         return createAndLoginUser.createUser();
     }
 
     @Override
+    @Step
     public Response loginUser() {
         return createAndLoginUser.loginUser();
     }
