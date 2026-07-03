@@ -20,7 +20,7 @@ public class TestPOMLoginUser implements CreateAndLoginUser {
         this.password = password;
         this.userName = userName;
     }
-    @Step
+    @Step("Удаление пользователя")
     public static void deleteUser(String accessToken) {
         given()
                 .header("Authorization", accessToken)
@@ -29,7 +29,7 @@ public class TestPOMLoginUser implements CreateAndLoginUser {
                 .delete(Endpoints.DELETE_USER)
                 ;
     }
-    @Step
+    @Step("Создание пользователя")
     public Response createUser(){
         obj = new LoginUserDTO(email, password, userName);
 
@@ -40,7 +40,7 @@ public class TestPOMLoginUser implements CreateAndLoginUser {
                 .when()
                 .post(Endpoints.CREATE_USER);
     }
-    @Step
+    @Step("Вход пользователя")
     public Response loginUser() {
         obj = new LoginUserDTO(email, password, userName);
 

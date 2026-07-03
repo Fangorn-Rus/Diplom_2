@@ -20,7 +20,7 @@ public class TestPOMCreateUser {
         this.name = name;
     }
 
-    @Step
+    @Step("Удаление пользователя")
     public static void deleteUser(String accessToken) {
         given()
                 .header("Authorization", accessToken)
@@ -29,7 +29,7 @@ public class TestPOMCreateUser {
                 .delete(Endpoints.DELETE_USER)
                 ;
     }
-    @Step
+    @Step("Создание пользователя")
     public Response createUser() {
          obj = new CreateUserDTO(email, password, name);
 

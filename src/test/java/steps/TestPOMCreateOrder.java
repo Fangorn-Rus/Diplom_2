@@ -17,7 +17,7 @@ public class TestPOMCreateOrder implements CreateAndLoginUser {
         this.ingredients = ingredients;
         this.createAndLoginUser = createAndLoginUser;
     }
-    @Step
+    @Step("Создание заказа")
     public Response createOrder() {
         CreateOrderDTO obj = new CreateOrderDTO(ingredients);
 
@@ -31,13 +31,13 @@ public class TestPOMCreateOrder implements CreateAndLoginUser {
 
 
     @Override
-    @Step
+    @Step("Создание пользователя")
     public Response createUser() {
         return createAndLoginUser.createUser();
     }
 
     @Override
-    @Step
+    @Step("Вход пользователя")
     public Response loginUser() {
         return createAndLoginUser.loginUser();
     }
