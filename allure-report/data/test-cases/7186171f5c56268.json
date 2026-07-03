@@ -1,0 +1,52 @@
+{
+  "uid" : "7186171f5c56268",
+  "name" : "testCreateOrderWithAuthAndWrongIngredients",
+  "historyId" : "TestCreateOrder:TestCreateOrder#testCreateOrderWithAuthAndWrongIngredients",
+  "time" : {
+    "duration" : 1794
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "9ec5b4dfd3ea0223",
+      "name" : "System out",
+      "source" : "9ec5b4dfd3ea0223.txt",
+      "type" : "text/plain",
+      "size" : 284
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "resultFormat",
+    "value" : "junit"
+  }, {
+    "name" : "suite",
+    "value" : "TestCreateOrder"
+  }, {
+    "name" : "testClass",
+    "value" : "TestCreateOrder"
+  }, {
+    "name" : "package",
+    "value" : "TestCreateOrder"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7186171f5c56268.json",
+  "parameterValues" : [ ]
+}
